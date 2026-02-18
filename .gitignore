@@ -1,0 +1,9 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+
+# modelos y datos pesados
+*.zip
+**/trained_models/
+
