@@ -134,6 +134,14 @@ print("Computing gradient-based attributions...")
 
 X_tensor = torch.tensor(X, dtype=torch.float32)
 
+# ========================
+# DEBUG: Check model outputs
+# ========================
+with torch.no_grad():
+    preds = wrapped_model(X_tensor[:100])
+    print("Sample outputs:", preds[:10].squeeze().numpy())
+    print("Output std:", preds.std().item())
+
 attr = []
 
 for i in range(X_tensor.shape[0]):
