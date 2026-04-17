@@ -7,3 +7,5 @@
 *.zip
 **/trained_models/
 
+**/models/
+
