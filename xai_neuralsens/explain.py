@@ -35,6 +35,7 @@ tox21_tasks = [
     'NR-AhR', 'NR-ER-LBD', 'SR-ATAD5', 'SR-p53'
 ]
 
+os.makedirs("explanations/", exist_ok=True)
 # ========================
 # LOAD DATA
 # ========================
@@ -92,7 +93,7 @@ for task_name in tox21_tasks:
     # ========================
     # LOAD MODEL
     # ========================
-    model_path = f"independent_models/{task_name}.pt"
+    model_path = f"models_perm/{task_name}.pt"
 
     if not os.path.exists(model_path):
         print(f"⚠️ Model not found: {model_path}")
@@ -194,7 +195,7 @@ for task_name in tox21_tasks:
     # ========================
     results_df = pd.DataFrame(results)
 
-    output_file = f'neuralsens_{task_name}_attributions.csv'
+    output_file = f'explanations/neuralsens_{task_name}_attributions.csv'
     results_df.to_csv(output_file, index=False)
 
     print(f"✅ Saved: {output_file}")
